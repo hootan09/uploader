@@ -1,0 +1,26 @@
+<h1 class="mt-4">Dashbaord</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<br>
+<br>
+<b>list of uploaded files</b>
+<a href="/public" class="btn btn-secondary">Uploaded files</a>
+<br>
+<br>
+<br>
+<br>
+<b>the max count of upload files in 12</b>
+<br>
+<div>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="files"
+        class="btn btn-primary" id="file"
+        multiple>
+        <button class="btn btn-primary" type="submit" style="border-radius: 4px;">
+            Upload
+        </button>
+    </form>
+</div>
+<script type="text/javascript">
+    document.getElementById("file").value = "";
+</script>
