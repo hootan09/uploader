@@ -26,14 +26,14 @@ var storage = multer.diskStorage({
       callback(null, dir);
   },
   filename: function (req, file, callback) {
-      callback(null, file.originalname + '.bak');
+      callback(null, file.originalname +'_'+ new Date(Date.now()).toISOString());
   }
 });
 var upload = multer({storage: storage}).array('files', 12);
 router.post('/upload', function (req, res, next) {
   upload(req, res, function (err) {
       if (err) {
-          return res.end("Something went wrong:(");
+          return res.end("Something went wrong:(" +err);
       }
       res.end("Upload completed.");
   });

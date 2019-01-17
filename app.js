@@ -10,6 +10,9 @@ const app = express();
 
 app.use('/public', serveIndex('uploads')); // shows you the file list
 app.use('/public', express.static('uploads')); // serve the actual files
+
+app.use('/assets', express.static('assets'));
+
 // Passport Config
 require('./config/passport')(passport);
 
